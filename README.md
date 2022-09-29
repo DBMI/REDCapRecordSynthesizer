@@ -1,7 +1,7 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 ![Pylint](./.github/badges/pylint-badge.svg?dummy=8484744)
-![Last Commit Date](./.github/badges/last-commit-badge.svg?dummy=8484744)
 ![Coverage Status](./.github/badges/coverage-badge.svg?dummy=8484744)
+![Last Commit Date](./.github/badges/last-commit-badge.svg?dummy=8484744)
 
 # Record Synthesizer
 ![image info](./pictures/groucho_small.png) This application uses the [recordlinkage toolkit](https://recordlinkage.readthedocs.io/en/latest/index.html) to generate synthetic REDCap-like records for use in software testing.
@@ -34,7 +34,4 @@ To be more realistic, the duplicate records aren't *exact* copies of the origina
 * medical record numbers are sometimes regenerated, just as they would be for a patient mistakenly re-enrolled in the database.
 * addresses are sometimes changed to use the full state name ("California" instead of "CA")
 * the format for date of birth is sometimes changed ("July 01, 2000" instead of "7/1/2000")
-<<<<<<< HEAD
-* email addresses are sometimes modified to a new provider or format ("first.last" instead of "first_last").
-=======
 * email addresses are sometimes modified to a new provider or format ("first.last" instead of "first_last").
