@@ -13,7 +13,7 @@ setup(
         "typing>=3.7.4.3",
     ],
     license="",
-    name="RecordSynthesizer",
+    name="REDCapRecordSynthesizer",
     package_dir={'': 'src'},
     packages=[
         "dbmi_synthesizer",
