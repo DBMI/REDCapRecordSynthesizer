@@ -3,8 +3,8 @@
 ![Coverage Status](./.github/badges/coverage-badge.svg?dummy=8484744)
 ![Last Commit Date](./.github/badges/last-commit-badge.svg?dummy=8484744)
 
-# Record Synthesizer
-![image info](./pictures/groucho_small.png) This application uses the [recordlinkage toolkit](https://recordlinkage.readthedocs.io/en/latest/index.html) to generate synthetic REDCap-like records for use in software testing.
+# Record Synthesizer ![image info](./pictures/groucho_small.png) 
+This application uses the [recordlinkage toolkit](https://recordlinkage.readthedocs.io/en/latest/index.html) to generate synthetic REDCap-like records for use in software testing.
 
 ## Installation
     pip install git+https://github.com/DBMI/RecordSynthesizer.git
