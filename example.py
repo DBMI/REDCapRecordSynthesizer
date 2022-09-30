@@ -3,7 +3,7 @@ Simple example of creating REDCap-like records.
 """
 import logging
 import sys
-from dbmi_synthesizer import fake_records
+from src.dbmi_synthesizer import fake_records
 
 
 # Press the green button in the gutter to run the script.
