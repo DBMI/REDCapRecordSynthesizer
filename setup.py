@@ -14,10 +14,11 @@ setup(
     ],
     license="",
     name="RecordSynthesizer",
+    package_dir={'': 'src'},
     packages=[
         "dbmi_synthesizer",
         "dbmi_synthesizer.nickname_and_diminutive_names_lookup",
     ],
     url="https://github.com/DBMI/REDCapSynthesizer",
-    version="0.0.1",
+    version="0.1.0",
 )

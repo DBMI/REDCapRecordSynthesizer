@@ -11,8 +11,8 @@ from datetime import datetime, timedelta
 import pandas as pd
 
 from faker import Faker
-from dbmi_synthesizer.nickname_and_diminutive_names_lookup import python_parser
-from dbmi_synthesizer import state_abbr_conversion
+from src.dbmi_synthesizer.nickname_and_diminutive_names_lookup import python_parser
+from src.dbmi_synthesizer import state_abbr_conversion
 
 
 class FakeRecordGenerator:  # pylint: disable=logging-fstring-interpolation, too-many-locals

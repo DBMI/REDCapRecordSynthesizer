@@ -8,9 +8,8 @@ TestSynthesizer
 import pandas
 import unittest
 
-from dbmi_synthesizer import fake_records
-from dbmi_synthesizer.nickname_and_diminutive_names_lookup import python_parser
-from dbmi_synthesizer import state_abbr_conversion
+from src.dbmi_synthesizer import fake_records, state_abbr_conversion
+from src.dbmi_synthesizer.nickname_and_diminutive_names_lookup import python_parser
 
 
 class TestSynthesizer(unittest.TestCase):
