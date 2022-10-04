@@ -16,9 +16,9 @@ setup(
     name="REDCapRecordSynthesizer",
     package_dir={'': 'src'},
     packages=[
-        "dbmi_synthesizer",
-        "dbmi_synthesizer.nickname_and_diminutive_names_lookup",
+        "redcap_record_synthesizer",
+        "redcap_record_synthesizer.nickname_and_diminutive_names_lookup",
     ],
     url="https://github.com/DBMI/REDCapRecordSynthesizer",
-    version="0.1.0",
+    version="0.2.0",
 )

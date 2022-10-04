@@ -8,8 +8,8 @@ TestSynthesizer
 import pandas
 import unittest
 
-from src.dbmi_synthesizer import fake_records, state_abbr_conversion
-from src.dbmi_synthesizer.nickname_and_diminutive_names_lookup import python_parser
+from src.redcap_record_synthesizer import fake_records, state_abbr_conversion
+from src.redcap_record_synthesizer.nickname_and_diminutive_names_lookup import python_parser
 
 
 class TestSynthesizer(unittest.TestCase):
