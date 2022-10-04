@@ -11,10 +11,10 @@ from datetime import datetime, timedelta
 import pandas as pd
 
 from faker import Faker
-from src.redcap_record_synthesizer.nickname_and_diminutive_names_lookup import (
+from redcap_record_synthesizer.nickname_and_diminutive_names_lookup import (
     python_parser,
 )
-from src.redcap_record_synthesizer import state_abbr_conversion
+from redcap_record_synthesizer import state_abbr_conversion
 
 
 class FakeRecordGenerator:  # pylint: disable=logging-fstring-interpolation, too-many-locals
