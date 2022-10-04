@@ -7,6 +7,7 @@ setup(
         "Programming Language :: Python :: 3.7",
     ],
     description="Creates synthetic REDCap-like records for software testing.",
+    include_package_data=True,
     install_requires=[
         "Faker==15.0.0",
         "pandas==1.3.5",
@@ -21,5 +22,5 @@ setup(
         "redcap_record_synthesizer.nickname_and_diminutive_names_lookup",
     ],
     url="https://github.com/DBMI/REDCapRecordSynthesizer",
-    version="0.2.6",
+    version="0.2.7",
 )
