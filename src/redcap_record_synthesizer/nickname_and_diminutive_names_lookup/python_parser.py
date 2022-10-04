@@ -96,7 +96,9 @@ class NicknameGenerator:
                 If 'names.csv' file not found in expected location.
         """
         current_dir = Path(inspect.getfile(NicknameGenerator))
-        names_file = os.path.join(current_dir.parent.absolute(), "names.csv")
+        names_file = os.path.join(
+            current_dir.parent.absolute(), "../../../data/names.csv"
+        )
         default_filenames = glob.glob(names_file)
 
         if (
@@ -104,7 +106,9 @@ class NicknameGenerator:
             or not isinstance(default_filenames, list)
             or len(default_filenames) == 0
         ):
-            raise RuntimeError(f"Unable to find file '{default_filenames}'.")  # pragma: no cover
+            raise RuntimeError(
+                f"Unable to find file '{default_filenames}'."
+            )  # pragma: no cover
 
         return default_filenames[0]
 
