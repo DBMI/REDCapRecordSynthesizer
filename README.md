@@ -7,12 +7,12 @@
 This application uses the [recordlinkage toolkit](https://recordlinkage.readthedocs.io/en/latest/index.html) to generate synthetic REDCap-like records for use in software testing.
 
 ## Installation
-    pip install git+https://github.com/DBMI/RecordSynthesizer.git
+    pip install git+https://github.com/DBMI/REDCapRecordSynthesizer.git
 
 ## Use
-From project `dbmi_synthesizer`, import Python package `fake_records`:
+From project `redcap_record_synthesizer`, import Python package `fake_records`:
 
-    from dbmi_synthesizer import fake_records
+    from redcap_record_synthesizer import fake_records
 
 Then instantiate an object of the `FakeRecordGenerator` class:
 
