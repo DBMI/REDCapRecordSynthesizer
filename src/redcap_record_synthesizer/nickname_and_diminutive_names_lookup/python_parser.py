@@ -104,7 +104,7 @@ class NicknameGenerator:
             or not isinstance(default_filenames, list)
             or len(default_filenames) == 0
         ):
-            raise RuntimeError("Unable to find 'names.csv' file.")  # pragma: no cover
+            raise RuntimeError(f"Unable to find file '{default_filenames}'.")  # pragma: no cover
 
         return default_filenames[0]
 
