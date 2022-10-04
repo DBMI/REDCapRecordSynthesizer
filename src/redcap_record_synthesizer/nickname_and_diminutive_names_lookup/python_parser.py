@@ -5,11 +5,9 @@ https://github.com/carltonnorthern/nickname-and-diminutive-names-lookup
 """
 import collections
 import csv
-import glob
-import inspect
 import os
-from pathlib import Path
 from typing import Optional, Union
+from . import get_data
 
 
 # pylint: disable=too-few-public-methods
@@ -95,22 +93,18 @@ class NicknameGenerator:
             RuntimeError
                 If 'names.csv' file not found in expected location.
         """
-        current_dir = Path(inspect.getfile(NicknameGenerator))
-        names_file = os.path.join(
-            current_dir.parent.absolute(), "../../../data/names.csv"
-        )
-        default_filenames = glob.glob(names_file)
+        default_filename = get_data("names.csv")
 
         if (
-            default_filenames is None
-            or not isinstance(default_filenames, list)
-            or len(default_filenames) == 0
+            default_filename is None
+            or not isinstance(default_filename, str)
+            or not os.path.exists(default_filename)
         ):
             raise RuntimeError(
-                f"Unable to find file '{default_filenames}'."
+                f"Unable to find file '{default_filename}'."
             )  # pragma: no cover
 
-        return default_filenames[0]
+        return default_filename
 
 
 if __name__ == "__main__":

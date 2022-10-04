@@ -14,12 +14,12 @@ setup(
     ],
     license="",
     name="REDCapRecordSynthesizer",
-    package_data={'': ['data/names.csv']},
+    package_data={'': ['src\\redcap_record_synthesizer\\nickname_and_diminutive_names_lookup\\names.csv']},
     package_dir={'': 'src'},
     packages=[
         "redcap_record_synthesizer",
         "redcap_record_synthesizer.nickname_and_diminutive_names_lookup",
     ],
     url="https://github.com/DBMI/REDCapRecordSynthesizer",
-    version="0.2.5",
+    version="0.2.6",
 )
