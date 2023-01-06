@@ -116,7 +116,8 @@ class FakeRecordGenerator:  # pylint: disable=logging-fstring-interpolation,
             raise TypeError("Input 'surname' is not a str.")
 
         self.__log.debug(
-            f"Synthesizing email address for {given_name} {surname}."
+            "Synthesizing email address for {given_name} {surname}.",
+            extra={"given_name": given_name, "surname": surname},
         )  # pragma: no cover
 
         # Is the email given.surname or given_surname or givensurname?
@@ -125,7 +126,10 @@ class FakeRecordGenerator:  # pylint: disable=logging-fstring-interpolation,
 
         if random.uniform(0, 1) <= probability_of_using_first_initial_only:
             given_name_used = given_name[0]
-            self.__log.debug(f"Only using the first initial {given_name_used}.")
+            self.__log.debug(
+                "Only using the first initial {given_name_used}.",
+                extra={"given_name_used": given_name_used},
+            )
 
         new_address = (
             given_name_used.lower()
@@ -134,7 +138,9 @@ class FakeRecordGenerator:  # pylint: disable=logging-fstring-interpolation,
             + "@"
             + fake.free_email_domain()
         )
-        self.__log.debug(f"Synthesized: {new_address}.")
+        self.__log.debug(
+            "Synthesized: {new_address}.", extra={"new_address": new_address}
+        )
         return new_address
 
     def __create_fake_record(self, next_study_id: int) -> dict:
@@ -248,7 +254,8 @@ class FakeRecordGenerator:  # pylint: disable=logging-fstring-interpolation,
         study_ids = random.sample(self.__range_study_id, k=num_records_desired)
 
         self.__log.info(
-            f"Generating {num_records_desired} " f"synthetic patient records."
+            "Generating {num_records_desired} synthetic patient records.",
+            extra={"num_records_desired": num_records_desired},
         )
         records = self.__initialize_fake_records(
             num_records_desired=num_records_desired, study_ids=study_ids
@@ -261,7 +268,10 @@ class FakeRecordGenerator:  # pylint: disable=logging-fstring-interpolation,
         num_records_to_duplicate = int(
             round(num_records_desired * percent_records_to_duplicate / 100.0)
         )
-        self.__log.info(f"Selecting {num_records_to_duplicate} records to duplicate.")
+        self.__log.info(
+            "Selecting {num_records_to_duplicate} records to duplicate.",
+            extra={"num_records_to_duplicate": num_records_to_duplicate},
+        )
         nickname_generator = python_parser.NicknameGenerator()
         state_abbreviation_converter = (
             state_abbr_conversion.StateAbbreviationConverter()
@@ -288,7 +298,8 @@ class FakeRecordGenerator:  # pylint: disable=logging-fstring-interpolation,
                 )
 
             self.__log.info(
-                f".Making {num_copies_of_this_record} copies of this record."
+                ".Making {num_copies} copies of this record.",
+                extra={"num_copies": num_copies_of_this_record},
             )
 
             for _ in range(num_copies_of_this_record):

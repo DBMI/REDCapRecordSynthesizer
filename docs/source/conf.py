@@ -17,7 +17,6 @@ sys.path.append(
 html_logo = "../../pictures/groucho_small.png"  # adds logo to documents pages.
 
 project = 'Record Synthesizer'
-copyright = '2022, University of California San Diego'
 author = 'Kevin J. Delaney'
 release = '0.0.1'
 
