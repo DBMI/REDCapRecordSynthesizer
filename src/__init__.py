@@ -1,3 +1,1 @@
-
-
-import redcap_record_synthesizer
+import redcap_record_synthesizer  # type: ignore[import]

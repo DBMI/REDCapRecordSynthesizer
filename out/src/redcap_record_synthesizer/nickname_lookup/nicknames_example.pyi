@@ -1,0 +1,1 @@
+from src.redcap_record_synthesizer.nickname_lookup import python_parser as python_parser
