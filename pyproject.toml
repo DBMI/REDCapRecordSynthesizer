@@ -80,7 +80,7 @@ pyupgrade = "*"
 sphinx = "*"
 sphinx_markdown_builder = "*"
 tryceratops = "*"
-typing = "*"
+typing = "3.7.4.3"
 wheel = "*"
 
 [tool.pylint.format]
