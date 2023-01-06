@@ -16,9 +16,9 @@ sys.path.append(
 )  # This is so sphinx knows where to find your module
 html_logo = "../../pictures/groucho_small.png"  # adds logo to documents pages.
 
-project = 'Record Synthesizer'
-author = 'Kevin J. Delaney'
-release = '0.0.1'
+project = "Record Synthesizer"
+author = "Kevin J. Delaney"
+release = "0.0.1"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -30,13 +30,12 @@ extensions = [
     "sphinx.ext.autosummary",
 ]
 
-templates_path = ['_templates']
+templates_path = ["_templates"]
 exclude_patterns = []
-
 
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'alabaster'
-html_static_path = ['_static']
+html_theme = "alabaster"
+html_static_path = ["_static"]
