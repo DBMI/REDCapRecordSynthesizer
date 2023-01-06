@@ -1,5 +1,6 @@
 """
-Module test_synthesizer.py, which supports automated testing of FakeRecordGenerator class.
+Module test_synthesizer.py,
+    supports automated testing of FakeRecordGenerator class.
 
 Classes
 -------
