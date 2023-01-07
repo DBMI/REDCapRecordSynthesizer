@@ -91,4 +91,5 @@ addopts = """\
     --cov-report term-missing \
     --no-cov-on-fail \
 """
+pythonpath = [".", "src", "src/redcap_record_synthesizer"]
 testpaths= ["redcap_record_synthesizer"]
