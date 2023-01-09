@@ -21,5 +21,5 @@ setup(
         "redcap_record_synthesizer.nickname_lookup",
     ],
     url="https://github.com/DBMI/REDCapRecordSynthesizer",
-    version="0.3.0",
+    version="0.4.0",
 )
