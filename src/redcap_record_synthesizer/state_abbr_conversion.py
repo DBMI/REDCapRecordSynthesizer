@@ -23,11 +23,8 @@ class StateAbbreviationConverter:  # pylint: disable=too-few-public-methods
 
     def __init__(self):
         self.__states = {
-            "AA": "Armed Forces Americas",
-            "AE": "Armed Forces Europe",
             "AK": "Alaska",
             "AL": "Alabama",
-            "AP": "Armed Forces Pacific",
             "AR": "Arkansas",
             "AZ": "Arizona",
             "CA": "California",
@@ -72,7 +69,6 @@ class StateAbbreviationConverter:  # pylint: disable=too-few-public-methods
             "TX": "Texas",
             "UT": "Utah",
             "VA": "Virginia",
-            "VI": "Virgin Islands",
             "VT": "Vermont",
             "WA": "Washington",
             "WI": "Wisconsin",
