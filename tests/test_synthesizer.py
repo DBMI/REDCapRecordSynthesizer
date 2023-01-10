@@ -9,10 +9,8 @@ TestSynthesizer
 import pandas
 import pytest
 
+from src.nickname_lookup import python_parser
 from src.redcap_record_synthesizer import fake_records, state_abbr_conversion
-from src.redcap_record_synthesizer.nickname_lookup import (
-    python_parser,
-)
 
 
 def test_generator_creation():

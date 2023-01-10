@@ -1,7 +1,7 @@
 """
 Simple example of using the nickname generator.
 """
-from src.redcap_record_synthesizer.nickname_lookup import python_parser
+from nickname_lookup import python_parser  # type: ignore[import]  # noqa: F401
 
 if __name__ == "__main__":
     nickname_generator = python_parser.NicknameGenerator()

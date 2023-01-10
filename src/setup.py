@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup  # type: ignore[import]  # noqa: F401
 
 setup(
     author="Kevin J. Delaney",
@@ -18,8 +18,8 @@ setup(
     package_dir={"": "src"},
     packages=[
         "redcap_record_synthesizer",
-        "redcap_record_synthesizer.nickname_lookup",
+        "nickname_lookup",
     ],
     url="https://github.com/DBMI/REDCapRecordSynthesizer",
-    version="0.4.1",
+    version="0.4.2",
 )

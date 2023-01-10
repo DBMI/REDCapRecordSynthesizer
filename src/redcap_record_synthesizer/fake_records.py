@@ -10,8 +10,8 @@ from typing import Union
 
 import pandas  # type: ignore[import]
 from faker import Faker  # type: ignore[import]
-from nickname_lookup import python_parser  # type: ignore[import]
 
+from nickname_lookup import python_parser  # type: ignore[import]
 from redcap_record_synthesizer import state_abbr_conversion  # type: ignore[import]
 
 
@@ -171,7 +171,11 @@ class FakeRecordGenerator:  # pylint: disable=logging-fstring-interpolation,
         eighteen_years = timedelta(days=365.25 * 18)
         primary_consent_date = fake.date_between(birthdate + eighteen_years)
         core_participant_date = fake.date_between(primary_consent_date)
-        state_abbr = fake.state_abbr()
+
+        # Exclude territories (like the Virgin Islands) because
+        # methods postalcode_in_state and zipcode_in_state
+        # can't handle territories.
+        state_abbr = fake.state_abbr(include_territories=False)
 
         # Strip off the extension.
         phone_number = fake.phone_number()
