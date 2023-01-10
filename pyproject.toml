@@ -31,7 +31,7 @@ disable_error_code = ["call-arg", "call-overload", "import", "var-annotated"]
 
 [tool.poetry]
 name = "REDCapRecordSynthesizer"
-version = "0.4.2"
+version = "0.4.3"
 description = "Creates synthetic REDCap-like records for software testing."
 authors = ["Kevin J. Delaney <kjdelaney@ucsd.edu>"]
 readme = "README.md"
@@ -41,6 +41,7 @@ homepage = "https://github.com/DBMI/REDCapRecordSynthesizer"
 repository = "https://github.com/DBMI/REDCapRecordSynthesizer"
 
 packages = [
+    { include = "nickname_lookup", from = "src"},
     { include = "redcap_record_synthesizer", from = "src" }
 ]
 
