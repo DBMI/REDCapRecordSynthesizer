@@ -10,8 +10,8 @@ from typing import Union
 
 import pandas  # type: ignore[import]
 from faker import Faker  # type: ignore[import]
-
 from nickname_lookup import python_parser  # type: ignore[import]
+
 from redcap_record_synthesizer import state_abbr_conversion  # type: ignore[import]
 
 
