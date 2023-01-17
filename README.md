@@ -10,13 +10,13 @@ This application uses the [recordlinkage toolkit](https://recordlinkage.readthed
     pip install git+https://github.com/DBMI/REDCapRecordSynthesizer.git
 
 ## Use
-From project `redcap_record_synthesizer`, import Python package `fake_records`:
+From project `redcap_record_synthesizer`, import class `FakeRecordGenerator`:
 
-    from redcap_record_synthesizer import fake_records
+    from redcap_record_synthesizer import FakeRecordGenerator
 
 Then instantiate an object of the `FakeRecordGenerator` class:
 
-    fake_record_generator = fake_records.FakeRecordGenerator()
+    fake_record_generator = FakeRecordGenerator()
 
 ...and call its `create_fake_records` method:
 
@@ -27,6 +27,7 @@ This method can be customized with these parameters:
 * `percent_records_to_duplicate` To test duplicate-detection software, you might want to inject duplicates of some records. What portion of the records should be duplicated? [default: 3%]
 * `max_number_copies_of_one_record` To allow for more than one copy of a given record, set this parameter > 1. [default: 3]
 * `index_field_name` Do you want the created Pandas DataFrame to synthesize an index or use an existing variable (like Medical Record Number) as the index? [default: None, meaning its index is synthesized.]
+* `duplicate_study_id` Should the duplicate records sometimes use the same study_id values as the original records? [default: True]
 
 ## Duplicate records
 To be more realistic, the duplicate records aren't *exact* copies of the original. Instead:
