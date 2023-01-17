@@ -10,7 +10,7 @@ import pandas
 import pytest
 
 from redcap_record_synthesizer.nickname_lookup import python_parser
-from src.redcap_record_synthesizer import fake_records, state_abbr_conversion
+from redcap_record_synthesizer import FakeRecordGenerator, StateAbbreviationConverter
 
 
 def test_generator_creation():
@@ -18,9 +18,9 @@ def test_generator_creation():
     #
     # Instantiate the object.
     #
-    fake_record_generator = fake_records.FakeRecordGenerator()
+    fake_record_generator = FakeRecordGenerator()
 
-    assert isinstance(fake_record_generator, fake_records.FakeRecordGenerator)
+    assert isinstance(fake_record_generator, FakeRecordGenerator)
     #
     # Create records without duplication.
     #
@@ -49,6 +49,21 @@ def test_generator_creation():
     )
     assert isinstance(patient_records, pandas.DataFrame)
     assert len(patient_records) == expected_number_of_records
+    #
+    # Create records with duplication but all with unique study_ids.
+    #
+    patient_records = fake_record_generator.create_fake_records(
+        duplicate_study_id=False,
+        max_number_copies_of_one_record=1,
+        num_records_desired=num_records_desired,
+        percent_records_to_duplicate=pct_to_duplicate,
+    )
+
+    expected_number_of_records = round(
+        num_records_desired * (100 + pct_to_duplicate) / 100
+    )
+    assert isinstance(patient_records, pandas.DataFrame)
+    assert len(patient_records) == expected_number_of_records
 
 
 def test_generator_exceptions():
@@ -56,9 +71,9 @@ def test_generator_exceptions():
     #
     # Instantiate the object.
     #
-    fake_record_generator = fake_records.FakeRecordGenerator()
+    fake_record_generator = FakeRecordGenerator()
 
-    assert isinstance(fake_record_generator, fake_records.FakeRecordGenerator)
+    assert isinstance(fake_record_generator, FakeRecordGenerator)
 
     # Not an int.
     with pytest.raises(TypeError):
@@ -135,9 +150,9 @@ def test_generator_exceptions():
 
 
 def test_index_column_option():
-    fake_record_generator = fake_records.FakeRecordGenerator()
+    fake_record_generator = FakeRecordGenerator()
 
-    assert isinstance(fake_record_generator, fake_records.FakeRecordGenerator)
+    assert isinstance(fake_record_generator, FakeRecordGenerator)
 
     num_records_desired = 10
     patient_records = fake_record_generator.create_fake_records(
@@ -177,10 +192,10 @@ def test_nicknames():
 
 def test_state_abbreviations():
     """Test conversion of 'CA' to 'California'."""
-    state_abbreviation_converter = state_abbr_conversion.StateAbbreviationConverter()
+    state_abbreviation_converter = StateAbbreviationConverter()
 
     assert isinstance(
-        state_abbreviation_converter, state_abbr_conversion.StateAbbreviationConverter
+        state_abbreviation_converter, StateAbbreviationConverter
     )
 
     # One that should translate.

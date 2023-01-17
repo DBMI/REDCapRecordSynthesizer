@@ -29,6 +29,7 @@ class FakeRecordGenerator:  # pylint: disable=logging-fstring-interpolation,
     Methods
     -------
     create_fake_records(index_field_name,
+                        duplicate_study_id,
                         max_number_copies_of_one_record,
                         num_records_desired,
                         percent_records_to_duplicate)
@@ -42,6 +43,7 @@ class FakeRecordGenerator:  # pylint: disable=logging-fstring-interpolation,
         min_study_id = 10000
         max_study_id = 99999
         self.__range_study_id = range(min_study_id, max_study_id)
+        self.__duplicate_study_id = True
         self.__existing_study_ids = []
 
     def __check_index_field_name(self, index_field_name: str) -> None:
@@ -209,6 +211,7 @@ class FakeRecordGenerator:  # pylint: disable=logging-fstring-interpolation,
 
     def create_fake_records(
         self,
+        duplicate_study_id: bool = True,
         index_field_name: str = "",
         max_number_copies_of_one_record: int = 3,
         num_records_desired: int = 100,
@@ -219,6 +222,10 @@ class FakeRecordGenerator:  # pylint: disable=logging-fstring-interpolation,
 
         Parameters
         ----------
+        duplicate_study_id : bool
+            Optional. Do you want to allow
+            duplicate records to have the same study id?
+            Default : True
         index_field_name : str
             Optional. Specify if one of the record columns should
             be used instead of a synthetic index. Default: empty string
@@ -241,6 +248,7 @@ class FakeRecordGenerator:  # pylint: disable=logging-fstring-interpolation,
         -------
         pandas DataFrame
         """
+        self.__duplicate_study_id = duplicate_study_id
         self.__check_index_field_name(index_field_name=index_field_name)
         self.__check_max_number_copies_of_one_record(
             max_number_copies_of_one_record=max_number_copies_of_one_record
@@ -361,7 +369,11 @@ class FakeRecordGenerator:  # pylint: disable=logging-fstring-interpolation,
         state_name: str,
     ) -> pandas.DataFrame:
         date_formats = ["%Y-%m-%d", "%d-%m-%Y", "%B %d, %Y", "%b %d, %Y"]
-        probability_of_duplicating_study_id = 0.20
+        probability_of_duplicating_study_id = 0.0
+
+        if self.__duplicate_study_id:
+            probability_of_duplicating_study_id = 0.20
+
         probability_of_new_mrn = 0.20
         probability_of_using_full_state_name = 0.33
         probability_of_using_nickname = 0.33
