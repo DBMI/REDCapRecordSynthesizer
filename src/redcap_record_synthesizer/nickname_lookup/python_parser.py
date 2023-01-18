@@ -39,7 +39,7 @@ class NicknameGenerator:
         """
         default_filename = NicknameGenerator.__names_file()
         filename = filename or default_filename
-        self.__names_dict = collections.defaultdict(list)
+        self.__names = collections.defaultdict(list)
 
         with open(filename, encoding="utf-8") as names_csv_file:
             reader = csv.reader(names_csv_file)
@@ -48,7 +48,7 @@ class NicknameGenerator:
                 matches = set(line)
 
                 for match in matches:
-                    self.__names_dict[match].append(matches)
+                    self.__names[match].append(matches)
 
     def get(
         self, name: str, default: Optional[str] = None
@@ -71,8 +71,9 @@ class NicknameGenerator:
         except (AttributeError, NameError):
             return None
 
-        if name in self.__names_dict:
-            names: list = list(set().union(*self.__names_dict[name]))  # type: ignore[arg-type]
+        if name in self.__names:
+            this_dict = self.__names[name]
+            names: list = list(set().union(*this_dict))  # type: ignore[arg-type]
 
             if name in names:
                 names.remove(name)
