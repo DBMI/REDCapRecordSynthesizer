@@ -31,7 +31,7 @@ disable_error_code = ["call-arg", "call-overload", "import", "var-annotated"]
 
 [tool.poetry]
 name = "REDCapRecordSynthesizer"
-version = "0.5.4"
+version = "0.5.5"
 description = "Creates synthetic REDCap-like records for software testing."
 authors = ["Kevin J. Delaney <kjdelaney@ucsd.edu>"]
 readme = "README.md"
@@ -93,3 +93,12 @@ addopts = """\
 """
 pythonpath = [".", "src", "src/redcap_record_synthesizer"]
 testpaths= ["redcap_record_synthesizer"]
+
+[tools.setuptools]
+include-package-data = true
+
+[tools.setuptools.package-data]
+mypkg = [".csv"]
+
+[tools.setuptools.packages.find]
+where = ["src/redcap_record_synthesizer/nickname_lookup/data"]

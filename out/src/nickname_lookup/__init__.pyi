@@ -1,3 +1,0 @@
-from typing import Any
-
-def get_data(path: Any): ...
