@@ -10,9 +10,13 @@ from typing import Union
 
 import pandas  # type: ignore[import]
 from faker import Faker  # type: ignore[import]
-from nickname_lookup import python_parser  # type: ignore[import]
 
-from redcap_record_synthesizer import state_abbr_conversion  # type: ignore[import]
+from redcap_record_synthesizer.nickname_lookup import (
+    NicknameGenerator,  # type: ignore[import]
+)
+from redcap_record_synthesizer.state_abbr_conversion import (
+    StateAbbreviationConverter,  # type: ignore[import]
+)
 
 
 class FakeRecordGenerator:  # pylint: disable=logging-fstring-interpolation,
@@ -284,10 +288,8 @@ class FakeRecordGenerator:  # pylint: disable=logging-fstring-interpolation,
             "Selecting {num_records_to_duplicate} records to duplicate.",
             extra={"num_records_to_duplicate": num_records_to_duplicate},
         )
-        nickname_generator = python_parser.NicknameGenerator()
-        state_abbreviation_converter = (
-            state_abbr_conversion.StateAbbreviationConverter()
-        )
+        nickname_generator = NicknameGenerator()
+        state_abbreviation_converter = StateAbbreviationConverter()
 
         for _ in range(num_records_to_duplicate):
             # Grab a record at random.

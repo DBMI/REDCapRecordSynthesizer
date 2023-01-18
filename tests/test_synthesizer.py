@@ -9,8 +9,9 @@ TestSynthesizer
 import pandas
 import pytest
 
-from redcap_record_synthesizer.nickname_lookup import python_parser
-from redcap_record_synthesizer import FakeRecordGenerator, StateAbbreviationConverter
+from redcap_record_synthesizer import FakeRecordGenerator
+from redcap_record_synthesizer import StateAbbreviationConverter
+from redcap_record_synthesizer.nickname_lookup import NicknameGenerator
 
 
 def test_generator_creation():
@@ -168,9 +169,9 @@ def test_index_column_option():
 
 def test_nicknames():
     """Test nickname generation."""
-    nickname_generator = python_parser.NicknameGenerator()
+    nickname_generator = NicknameGenerator()
 
-    assert isinstance(nickname_generator, python_parser.NicknameGenerator)
+    assert isinstance(nickname_generator, NicknameGenerator)
 
     test_name = "Elizabeth"
     nicknames = nickname_generator.get(test_name)
@@ -187,16 +188,14 @@ def test_nicknames():
 
     # Test expected exceptions.
     with pytest.raises(FileNotFoundError):
-        python_parser.NicknameGenerator(filename="not a real file.csv")
+        NicknameGenerator(filename="not a real file.csv")
 
 
 def test_state_abbreviations():
     """Test conversion of 'CA' to 'California'."""
     state_abbreviation_converter = StateAbbreviationConverter()
 
-    assert isinstance(
-        state_abbreviation_converter, StateAbbreviationConverter
-    )
+    assert isinstance(state_abbreviation_converter, StateAbbreviationConverter)
 
     # One that should translate.
     abbr = "CA"

@@ -6,9 +6,8 @@ https://github.com/carltonnorthern/nickname-and-diminutive-names-lookup
 import collections
 import csv
 import os
+from importlib import resources
 from typing import Optional, Union
-
-from . import get_data
 
 
 # pylint: disable=too-few-public-methods
@@ -25,7 +24,7 @@ class NicknameGenerator:
         If not found, returns the specified default value.
     """
 
-    def __init__(self, filename=None):
+    def __init__(self, filename: str = None) -> None:
         """Constructs object by preloading the names.csv file.
 
         Parameters
@@ -40,7 +39,7 @@ class NicknameGenerator:
         """
         default_filename = NicknameGenerator.__names_file()
         filename = filename or default_filename
-        self.__lookup = collections.defaultdict(list)
+        self.__names_dict = collections.defaultdict(list)
 
         with open(filename, encoding="utf-8") as names_csv_file:
             reader = csv.reader(names_csv_file)
@@ -49,7 +48,7 @@ class NicknameGenerator:
                 matches = set(line)
 
                 for match in matches:
-                    self.__lookup[match].append(matches)
+                    self.__names_dict[match].append(matches)
 
     def get(
         self, name: str, default: Optional[str] = None
@@ -72,8 +71,8 @@ class NicknameGenerator:
         except (AttributeError, NameError):
             return None
 
-        if name in self.__lookup:
-            names: list = list(set().union(*self.__lookup[name]))
+        if name in self.__names_dict:
+            names: list = list(set().union(*self.__names_dict[name]))  # type: ignore[arg-type]
 
             if name in names:
                 names.remove(name)
@@ -95,16 +94,19 @@ class NicknameGenerator:
             RuntimeError
                 If 'names.csv' file not found in expected location.
         """
-        default_filename = get_data("names.csv")
+        with resources.path(
+            "redcap_record_synthesizer.nickname_lookup.data", "names.csv"
+        ) as csv_path:
+            default_filename = str(csv_path)
 
-        if (
-            default_filename is None
-            or not isinstance(default_filename, str)
-            or not os.path.exists(default_filename)
-        ):
-            raise RuntimeError(
-                f"Unable to find file '{default_filename}'."
-            )  # pragma: no cover
+            if (
+                default_filename is None
+                or not isinstance(default_filename, str)
+                or not os.path.exists(default_filename)
+            ):
+                raise RuntimeError(
+                    f"Unable to find file '{default_filename}'."
+                )  # pragma: no cover
 
         return default_filename
 
