@@ -11,7 +11,7 @@ from typing import Union
 import pandas  # type: ignore[import]
 from faker import Faker  # type: ignore[import]
 
-from redcap_record_synthesizer.nickname_lookup import (
+from redcap_record_synthesizer.nickname_lookup.python_parser import (
     NicknameGenerator,  # type: ignore[import]
 )
 from redcap_record_synthesizer.state_abbr_conversion import (

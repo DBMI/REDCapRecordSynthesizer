@@ -1,4 +1,4 @@
-import pandas
+import pandas  # type: ignore[import]
 
 class FakeRecordGenerator:
     def __init__(self) -> None: ...
