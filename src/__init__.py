@@ -1,4 +1,4 @@
 """
 Source code
 """
-import redcap_record_synthesizer  # type: ignore[import]  # noqa: F401
+import redcaprecordsynthesizer  # type: ignore[import]  # noqa: F401

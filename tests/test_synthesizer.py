@@ -9,9 +9,9 @@ TestSynthesizer
 import pandas
 import pytest
 
-from redcap_record_synthesizer.fake_records import FakeRecordGenerator
-from redcap_record_synthesizer.nickname_lookup.python_parser import NicknameGenerator
-from redcap_record_synthesizer.state_abbr_conversion import StateAbbreviationConverter
+from redcaprecordsynthesizer.fake_records import FakeRecordGenerator
+from redcaprecordsynthesizer.nickname_lookup.python_parser import NicknameGenerator
+from redcaprecordsynthesizer.state_abbr_conversion import StateAbbreviationConverter
 
 
 def test_generator_creation():

@@ -4,7 +4,7 @@ Simple example of creating REDCap-like records.
 import logging
 import sys
 
-from src.redcap_record_synthesizer import fake_records
+from src.redcaprecordsynthesizer import fake_records
 
 # Press the green button in the gutter to run the script.
 if __name__ == "__main__":

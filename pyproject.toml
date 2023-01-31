@@ -31,7 +31,7 @@ disable_error_code = ["call-arg", "call-overload", "import", "var-annotated"]
 
 [tool.poetry]
 name = "REDCapRecordSynthesizer"
-version = "0.5.6"
+version = "0.5.7"
 description = "Creates synthetic REDCap-like records for software testing."
 authors = ["Kevin J. Delaney <kjdelaney@ucsd.edu>"]
 readme = "README.md"

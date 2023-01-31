@@ -96,7 +96,7 @@ class NicknameGenerator:
                 If 'names.csv' file not found in expected location.
         """
         with resources.path(
-            "redcap_record_synthesizer.nickname_lookup.data", "names.csv"
+            "redcaprecordsynthesizer.nickname_lookup.data", "names.csv"
         ) as csv_path:
             default_filename = str(csv_path)
 
