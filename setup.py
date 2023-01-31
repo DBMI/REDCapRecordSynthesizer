@@ -17,8 +17,8 @@ setup(
     name="REDCapRecordSynthesizer",
     package_dir={"": "src"},
     packages=[
-        "redcap_record_synthesizer",
+        "redcaprecordsynthesizer",
     ],
     url="https://github.com/DBMI/REDCapRecordSynthesizer",
-    version="0.5.6",
+    version="0.5.7",
 )

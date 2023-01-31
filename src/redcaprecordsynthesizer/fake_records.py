@@ -11,10 +11,10 @@ from typing import Union
 import pandas  # type: ignore[import]
 from faker import Faker  # type: ignore[import]
 
-from redcap_record_synthesizer.nickname_lookup.python_parser import (
+from redcaprecordsynthesizer.nickname_lookup.python_parser import (
     NicknameGenerator,  # type: ignore[import]
 )
-from redcap_record_synthesizer.state_abbr_conversion import (
+from redcaprecordsynthesizer.state_abbr_conversion import (
     StateAbbreviationConverter,  # type: ignore[import]
 )
 
