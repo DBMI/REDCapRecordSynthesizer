@@ -2,7 +2,6 @@
 Module: contains class FakeRecordGenerator,
 which generates synthetic REDCap-like records.
 """
-import logging
 import random
 import re
 from datetime import datetime, timedelta
@@ -10,6 +9,7 @@ from typing import Union
 
 import pandas  # type: ignore[import]
 from faker import Faker  # type: ignore[import]
+from redcaputilities.logging import setup_logging
 
 from redcaprecordsynthesizer.nickname_lookup.python_parser import (
     NicknameGenerator,  # type: ignore[import]
@@ -43,7 +43,7 @@ class FakeRecordGenerator:  # pylint: disable=logging-fstring-interpolation,
     """
 
     def __init__(self):
-        self.__log = logging.getLogger(__name__)
+        self.__log = setup_logging(log_filename="fake_records.log")
         min_study_id = 10000
         max_study_id = 99999
         self.__range_study_id = range(min_study_id, max_study_id)
