@@ -20,5 +20,5 @@ setup(
         "redcaprecordsynthesizer",
     ],
     url="https://github.com/DBMI/REDCapRecordSynthesizer",
-    version="0.5.8",
+    version="0.5.9",
 )
