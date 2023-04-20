@@ -10,9 +10,9 @@ This application uses the [recordlinkage toolkit](https://recordlinkage.readthed
     pip install git+https://github.com/DBMI/REDCapRecordSynthesizer.git
 
 ## Use
-From project `redcap_record_synthesizer`, import class `FakeRecordGenerator`:
+From project `redcaprecordsynthesizer`, import class `FakeRecordGenerator`:
 
-    from redcap_record_synthesizer import FakeRecordGenerator
+    from redcaprecordsynthesizer import FakeRecordGenerator
 
 Then instantiate an object of the `FakeRecordGenerator` class:
 

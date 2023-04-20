@@ -31,7 +31,7 @@ disable_error_code = ["call-arg", "call-overload", "import", "var-annotated"]
 
 [tool.poetry]
 name = "REDCapRecordSynthesizer"
-version = "0.6.0"
+version = "0.6.1"
 description = "Creates synthetic REDCap-like records for software testing."
 authors = ["Kevin J. Delaney <kjdelaney@ucsd.edu>"]
 readme = "README.md"
@@ -41,7 +41,7 @@ homepage = "https://github.com/DBMI/REDCapRecordSynthesizer"
 repository = "https://github.com/DBMI/REDCapRecordSynthesizer"
 
 packages = [
-    { include = "redcap_record_synthesizer", from = "src" }
+    { include = "redcaprecordsynthesizer", from = "src" }
 ]
 
 [tool.poetry.dependencies]
@@ -88,12 +88,8 @@ wheel = "*"
 max-line-length = "88"
 
 [tool.pytest.ini_options]
-addopts = """\
-    --cov-report term-missing \
-    --no-cov-on-fail \
-"""
-pythonpath = [".", "src", "src/redcap_record_synthesizer"]
-testpaths= ["redcap_record_synthesizer"]
+pythonpath = [".", "src", "src/redcaprecordsynthesizer"]
+testpaths= ["redcaprecordsynthesizer"]
 
 [tools.setuptools]
 include-package-data = true
@@ -102,4 +98,4 @@ include-package-data = true
 mypkg = [".csv"]
 
 [tools.setuptools.packages.find]
-where = ["src/redcap_record_synthesizer/nickname_lookup/data"]
+where = ["src/redcaprecordsynthesizer/nickname_lookup/data"]
