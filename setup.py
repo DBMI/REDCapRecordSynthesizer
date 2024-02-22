@@ -4,7 +4,7 @@ setup(
     author="Kevin J. Delaney",
     author_email="kjdelaney@ucsd.edu",
     classifiers=[
-        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.12",
     ],
     description="Creates synthetic REDCap-like records for software testing.",
     include_package_data=True,
@@ -15,5 +15,5 @@ setup(
         "redcaprecordsynthesizer",
     ],
     url="https://github.com/DBMI/REDCapRecordSynthesizer",
-    version="0.6.1",
+    version="1.0.0",
 )
