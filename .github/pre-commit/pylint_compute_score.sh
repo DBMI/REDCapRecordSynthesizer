@@ -1,1 +1,1 @@
-pylint .\\src\\redcap_record_synthesizer\\ | sed --quiet 's/^Your code has been rated at \([-0-9.]*\)\/.*/\1/p'
+pylint .\\src\\redcaprecordsynthesizer\\ | sed --quiet 's/^Your code has been rated at \([-0-9.]*\)\/.*/\1/p'

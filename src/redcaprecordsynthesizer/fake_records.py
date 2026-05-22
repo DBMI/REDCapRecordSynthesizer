@@ -2,6 +2,7 @@
 Module: contains class FakeRecordGenerator,
 which generates synthetic REDCap-like records.
 """
+
 import random
 import re
 from datetime import datetime, timedelta
@@ -322,7 +323,7 @@ class FakeRecordGenerator:  # pylint: disable=logging-fstring-interpolation,
                 record_copy.name = len(records)
                 mrn_list = list(records["mrn"])
 
-                record_copy = self.__duplicate_record(
+                record_copy: pandas.DataFrame = self.__duplicate_record(
                     record=record_copy,
                     medical_record_numbers=mrn_list,
                     nicknames=set_of_nicknames,
@@ -330,7 +331,8 @@ class FakeRecordGenerator:  # pylint: disable=logging-fstring-interpolation,
                 )
 
                 # Insert this copy into records.
-                records = records.append(record_copy)
+                # records = records.append(record_copy)
+                records = pandas.concat([records, record_copy])
 
         # If specified, set the desired field as the index.
         if len(index_field_name) > 0:
@@ -426,7 +428,8 @@ class FakeRecordGenerator:  # pylint: disable=logging-fstring-interpolation,
         if random.uniform(0, 1) <= probability_of_new_mrn:
             record["mrn"] = max(medical_record_numbers) + 1
 
-        return record
+        new_df: pandas.DataFrame = record.to_frame()
+        return new_df.transpose()
 
     def __initialize_fake_records(
         self, num_records_desired: int, study_ids: list
@@ -440,14 +443,18 @@ class FakeRecordGenerator:  # pylint: disable=logging-fstring-interpolation,
         pandas.options.mode.chained_assignment = None
 
         for record_number in range(num_records_desired):
-            study_id = study_ids[record_number]
-            new_record = self.__create_fake_record(next_study_id=study_id)
-            new_df = pandas.DataFrame(data=new_record, index=[record_number])
+            study_id: int = study_ids[record_number]
+            new_record: dict = self.__create_fake_record(next_study_id=study_id)
+            new_df: pandas.DataFrame = pandas.DataFrame(
+                data=new_record, index=[record_number]
+            )
+            records: pandas.DataFrame
 
             if len(records) == 0:
                 records = new_df
             else:
-                records = records.append(new_df)
+                # records = records.append(new_df)
+                records = pandas.concat([records, new_df])
 
         return records
 

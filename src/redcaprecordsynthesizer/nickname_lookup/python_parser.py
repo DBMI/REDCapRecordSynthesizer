@@ -3,6 +3,7 @@ Module: contains class NicknameGenerator, which parses "Robert" into "Bob", "Bob
 
 https://github.com/carltonnorthern/nickname-and-diminutive-names-lookup
 """
+
 import collections
 import csv
 import os
