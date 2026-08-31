@@ -1,6 +1,7 @@
 """
 Simple example of creating REDCap-like records.
 """
+
 import logging
 import sys
 

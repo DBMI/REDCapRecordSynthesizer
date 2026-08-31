@@ -8,7 +8,6 @@ import collections
 import csv
 import os
 from importlib import resources
-from typing import Optional, Union
 
 
 # pylint: disable=too-few-public-methods
@@ -25,7 +24,7 @@ class NicknameGenerator:
         If not found, returns the specified default value.
     """
 
-    def __init__(self, filename: str = None) -> None:
+    def __init__(self, filename: str | None = None) -> None:
         """Constructs object by preloading the names.csv file.
 
         Parameters
@@ -38,22 +37,20 @@ class NicknameGenerator:
             FileNotFoundError
                 If unable to find the filename specified.
         """
-        default_filename = NicknameGenerator.__names_file()
-        filename = filename or default_filename
-        self.__names = collections.defaultdict(list)
+        default_filename: str = NicknameGenerator.__names_file()
+        filename: str = filename or default_filename
+        self.__names: dict = collections.defaultdict(list)
 
         with open(filename, encoding="utf-8") as names_csv_file:
-            reader = csv.reader(names_csv_file)
+            reader: csv.reader = csv.reader(names_csv_file)
 
             for line in reader:
-                matches = set(line)
+                matches: set[str] = set(line)
 
                 for match in matches:
                     self.__names[match].append(matches)
 
-    def get(
-        self, name: str, default: Optional[str] = None
-    ) -> Union[Optional[str], Optional[list]]:
+    def get(self, name: str, default: str | None = None) -> str | None | list:
         """Translates the name provided into its nicknames, if available.
 
         Parameters

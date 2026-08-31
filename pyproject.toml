@@ -2,10 +2,6 @@
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.black]
-target-version = ["py312"]
-include = '\.pyi?$'
-
 [tool.coverage.report]
 fail_under = 100
 exclude_lines = [
@@ -13,25 +9,9 @@ exclude_lines = [
     'pragma: no cover'
 ]
 
-[tool.isort]
-profile = "black"
-src_paths = ["src", "tests"]
-
-[tool.mypy]
-disallow_untyped_defs = true
-no_implicit_optional = true
-strict_equality = true
-warn_unused_ignores = true
-warn_redundant_casts = true
-warn_return_any = true
-check_untyped_defs = true
-show_error_codes = true
-ignore_missing_imports = true
-disable_error_code = ["call-arg", "call-overload", "import", "var-annotated"]
-
 [tool.poetry]
 name = "REDCapRecordSynthesizer"
-version = "1.0.0"
+version = "1.1.0"
 description = "Creates synthetic REDCap-like records for software testing."
 authors = ["Kevin J. Delaney <kjdelaney@ucsd.edu>"]
 readme = "README.md"
@@ -45,47 +25,31 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.7.1,<4.0"
+python = ">=3.11,<4.0"
 faker = "^15.3.4"
 pandas = ">=2.2.0"
 pre-commit = "^2.21.0"
 redcaputilities = {git = "https://github.com/DBMI/REDCapUtilities.git"}
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 anybadge = "*"
-autoflake = "*"
-black = "*"
-flake8 = "*"
-flake8-bugbear = "*"
-flake8-builtins = "*"
-flake8-comprehensions = "*"
-flake8-debugger = "*"
-flake8-eradicate = "*"
-flake8-logging-format = "*"
-genbadge = "*"
-isort = "*"
 make = "*"
 mkdocs = "*"
 mkdocstrings = "*"
 mkdocs-material = "*"
-mypy = "*"
 pep8-naming = "*"
 pre-commit = "*"
 pymdown-extensions = "*"
-pylint = "*"
 pytest = "*"
 pytest-github-actions-annotate-failures = "*"
 pytest-cov = "*"
 python-kacl = "*"
 pyupgrade = "*"
+ruff = "*"
 sphinx = "*"
 sphinx_markdown_builder = "*"
-tryceratops = "*"
 typing = "3.7.4.3"
 wheel = "*"
-
-[tool.pylint.format]
-max-line-length = "88"
 
 [tool.pytest.ini_options]
 pythonpath = [".", "src", "src/redcaprecordsynthesizer"]

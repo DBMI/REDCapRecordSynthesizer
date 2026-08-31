@@ -1,7 +1,8 @@
 """
 Simple example of using the nickname generator.
 """
-from src.redcaprecordsynthesizer.nickname_lookup import (  # type: ignore[import]  # noqa: F401
+
+from src.redcaprecordsynthesizer.nickname_lookup import (  # type: ignore[import]
     python_parser,
 )
 
