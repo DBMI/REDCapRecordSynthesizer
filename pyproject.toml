@@ -49,6 +49,7 @@ ruff = "*"
 sphinx = "*"
 sphinx_markdown_builder = "*"
 typing = "3.7.4.3"
+usaddress = "*"
 wheel = "*"
 
 [tool.pytest.ini_options]
