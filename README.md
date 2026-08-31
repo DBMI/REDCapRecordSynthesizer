@@ -1,7 +1,5 @@
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-![Pylint](./.github/badges/pylint-badge.svg?dummy=8484744)
-![Coverage Status](./.github/badges/coverage-badge.svg?dummy=8484744)
-![Last Commit Date](./.github/badges/last-commit-badge.svg?dummy=8484744)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+![GitHub last commit](https://img.shields.io/github/last-commit/dbmi/REDCapRecordSynthesizer)
 
 # REDCap Record Synthesizer ![image info](./pictures/groucho_small.png) 
 This application uses the [recordlinkage toolkit](https://recordlinkage.readthedocs.io/en/latest/index.html) to generate synthetic REDCap-like records for use in software testing.
